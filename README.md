@@ -39,6 +39,24 @@ Wait for the node to show `Ready` (can take a minute or two):
 kubectl get nodes -w
 ```
 
+### Optional: kubectx and kubens
+
+Quick switching of contexts and namespaces (`kubectx`, `kubens`). Run after the
+kubeconfig step above, as your normal user (the script uses sudo itself):
+
+```bash
+./scripts/control-plane/install-kubectx.sh
+```
+
+Usage:
+
+```bash
+kubens kube-system    # switch namespace
+kubens -              # back to previous namespace
+kubens -c             # print current namespace
+kubectx               # list contexts
+```
+
 ## 3. Workers only
 
 On the control plane, print the join command:
@@ -64,3 +82,4 @@ If `kubectl top` fails with TLS errors (and metrics-server is already installed)
 ```
 
 For dev/lab clusters only, since it disables kubelet certificate verification.
+
