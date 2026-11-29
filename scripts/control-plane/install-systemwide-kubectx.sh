@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eou pipefail
+set -euo pipefail
 
 if ! command -v kubectx > /dev/null 2>&1; then
     sudo apt install kubectx -y
